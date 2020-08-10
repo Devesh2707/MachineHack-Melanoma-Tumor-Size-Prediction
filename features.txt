@@ -1,0 +1,36 @@
+Index(['mass_npea', 'size_npear', 'malign_ratio', 'damage_size',
+       'exposed_area', 'std_dev_malign', 'err_malign', 'malign_penalty',
+       'damage_ratio', 'penalty-err', 'd_size-ratio',
+       'd_ratio-m_ratio', 'penalty/std', 'mass/size', 'area/mass', 'err/std',
+       'dsr/ps', 'std/area', 'err/area', 'dr/area', 'std/err', 'penalty/err],
+      dtype='object')
+
+
+
+train['penalty-err'] = train['malign_penalty'] - train['err_malign']
+train['d_size-ratio'] = train['damage_size'] - train['damage_ratio']
+train['d_ratio-m_ratio'] = train['damage_ratio'] - (train['malign_ratio'])
+train['penalty/std'] = train['malign_penalty']/train['std_dev_malign']
+train['mass/size'] = (train['mass_npea'])/(train['exposed_area'])
+train['area/mass'] = train['exposed_area']/train['mass_npea']
+train['err/std'] = train['penalty-err']/train['std_dev_malign']
+train['dsr/ps'] = train['damage_size']/train['penalty-err']
+train['std/area'] = train['std_dev_malign']/train['exposed_area']
+train['err/area'] = train['err_malign']/train['exposed_area']
+train['dr/area'] = (train['damage_ratio']*100)/train['exposed_area']
+train['std/err'] = (train['std_dev_malign']+1)/(train['err_malign']+1)
+train['penalty/err'] = (train['malign_penalty']+1)/(train['err_malign']+1)
+
+test['penalty-err'] = test['malign_penalty'] - test['err_malign']
+test['d_size-ratio'] = test['damage_size'] - test['damage_ratio']
+test['d_ratio-m_ratio'] = test['damage_ratio'] - (test['malign_ratio'])
+test['penalty/std'] = test['malign_penalty']/test['std_dev_malign']
+test['mass/size'] = (test['mass_npea'])/(test['exposed_area'])
+test['area/mass'] = test['exposed_area']/test['mass_npea']
+test['err/std'] = test['penalty-err']/test['std_dev_malign']
+test['dsr/ps'] = test['damage_size']/test['penalty-err']
+test['std/area'] = test['std_dev_malign']/test['exposed_area']
+test['err/area'] = test['err_malign']/test['exposed_area']
+test['dr/area'] = (test['damage_ratio']*100)/test['exposed_area']
+test['std/err'] = (test['std_dev_malign']+1)/(test['err_malign']+1)
+test['penalty/err'] = (test['malign_penalty']+1)/(test['err_malign']+1)

@@ -1,0 +1,3 @@
+train['exposed_area'] = np.log1p(train['exposed_area'])
+
+test['exposed_area'] = np.log1p(test['exposed_area'])
